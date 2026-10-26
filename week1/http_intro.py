@@ -7,7 +7,6 @@ import httpx
 async def fetch_delay(client: httpx.AsyncClient, seconds: int) -> int:
     resp = await client.get(f"http://localhost:8080/delay/{seconds}")
     resp.raise_for_status()
-    data = resp.json()
     return resp.status_code
 
 
